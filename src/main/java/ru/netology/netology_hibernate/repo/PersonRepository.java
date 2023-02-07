@@ -21,4 +21,21 @@ public class PersonRepository {
                 .setParameter("cityName", city);
         return resultCity.getResultList();
     }
+
+    @Transactional
+    public List<Person> getPersonsByAge(Integer age) {
+        var resultCity = entityManager.createQuery(
+                        "select c from Person c where c.age < :age order by c.surname")
+                .setParameter("age", age);
+        return resultCity.getResultList();
+    }
+
+    @Transactional
+    public List<Person> findByNameAndSurname(String name, String surname) {
+        var resultCity = entityManager.createQuery(
+                        "select c from Person c where c.name = :name and c.surname = :surname order by c.surname");
+        resultCity.setParameter("name", name);
+        resultCity.setParameter("surname", surname);
+        return resultCity.getResultList();
+    }
 }

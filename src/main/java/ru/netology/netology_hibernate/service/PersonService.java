@@ -19,4 +19,10 @@ public class PersonService {
     public List<Person> getPersonsByCity(String city) {
         return personRepository.getPersonsByCity(city);
     }
+    public List<Person> getPersonsByAge(Integer age) {
+        return personRepository.getPersonsByAge(age);
+    }
+    public List<Person> findByNameAndSurname(String name, String surname) {
+        return personRepository.findByNameAndSurname(name, surname);
+    }
 }
