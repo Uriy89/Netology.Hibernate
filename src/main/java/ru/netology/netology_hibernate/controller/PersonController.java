@@ -33,4 +33,10 @@ public class PersonController {
         return personService.findByNameAndSurname(name, surname);
     }
 
+    @RequestMapping("/")
+    public String homePage() {
+        return "Авторизуйся!";
+    }
+
+
 }

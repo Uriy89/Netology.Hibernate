@@ -5,16 +5,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.Min;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Table;
 import org.springframework.data.annotation.Id;
 
 
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
-@Table(name = "persons")
+@Table(name = "PERSONS")
 public class Person {
 
     @Id
@@ -37,25 +41,4 @@ public class Person {
 
     @Column(nullable = false, name = "city_of_living", length = 30)
     private String city;
-
-
-    public Person() {
-    }
-
-    public Person(Long id, String name, String surname, int age, String phoneNumber, String city) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.phoneNumber = phoneNumber;
-        this.city = city;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }
